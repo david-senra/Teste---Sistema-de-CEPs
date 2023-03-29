@@ -12,6 +12,8 @@ int main()
 {
 	setlocale(LC_ALL, "Portuguese"); //definindo a linguagem
 	
+    unsigned int cpIn  = GetConsoleCP();        //Se usa para saber o codepage de entrada atual
+    unsigned int cpOut = GetConsoleOutputCP(); //Se usa para saber o codepage de saída atual
     unsigned int cp = 1252; //garantindo que o prompt leia o alfabeto latino
     SetConsoleCP(cp);
     SetConsoleOutputCP(cp);
@@ -82,6 +84,9 @@ int main()
 		printf("\nSenha incorreta!\n\n");
 		system("pause");
 	}
+	
+    SetConsoleCP(cpIn);
+    SetConsoleOutputCP(cpOut);
 }
 
 int registro() //função para cadastro de usuários
